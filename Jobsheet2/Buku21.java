@@ -37,4 +37,23 @@ public class Buku21 {
         this.stok = stok;
         harga = har;
     }
+
+    int hitungHargaTotal() {
+        return harga * stok;
+    }
+
+    int hitungDiskon() {
+        int hargaTotal = hitungHargaTotal();
+        if (hargaTotal > 150000) {
+            return (int) (hargaTotal * 0.12);
+        } else if (hargaTotal >= 75000 && hargaTotal <= 150000) {
+            return (int) (hargaTotal * 0.05);
+        } else {
+            return 0;
+        }
+    }
+
+    int hitungHargaBayar() {
+        return hitungHargaTotal() - hitungDiskon();
+    }
 }
